@@ -22,6 +22,6 @@ municipios = entes.query('populacao > 100000 & populacao <300000').cod_ibge
 time.sleep(1)
 
 idh = pd.read_excel(
-    os.path.join(DATA_DIR,'idh.xlsx')
+    os.path.join(DATA_DIR,'idh.xls')
     )
 idh.to_sql('idh',conn)
