@@ -51,8 +51,11 @@ for id_ente in tqdm(municipios):
     for an_exercicio in list(range(2020,2021)):
         for nr_periodo in list(range(12,13)):
             for classe_conta in list(range(1,5)):
-                extrair_rgf(id_ente,an_exercicio,nr_periodo,classe_conta)
-                time.sleep(0.5)
+                try:
+                    extrair_rgf(id_ente,an_exercicio,nr_periodo,classe_conta)
+                    time.sleep(0.5)
+                except:
+                    break
 
 #def extrair_rgf(id_ente,an_exercicio,nr_periodo,classe_conta):
 #    link = f'https://apidatalake.tesouro.gov.br/ords/siconfi/tt/msc_patrimonial?id_ente={id_ente}&an_referencia={an_exercicio}&me_referencia={nr_periodo}&co_tipo_matriz=MSCE&classe_conta={classe_conta}&id_tv=ending_balance'

@@ -49,5 +49,8 @@ time.sleep(1)
 #for id_ente in '4300604':
 for id_ente in tqdm(municipios):
     for an_exercicio in list(range(2020,2021)):
-        extrair_rgf(id_ente,an_exercicio)
-        time.sleep(0.5)
+        try:
+            extrair_rgf(id_ente,an_exercicio)
+            time.sleep(0.5)
+        except:
+            break

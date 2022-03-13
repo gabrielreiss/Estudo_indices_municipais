@@ -53,9 +53,12 @@ time.sleep(1)
 for id_ente in tqdm(municipios):
     for an_exercicio in list(range(2020,2021)):
         for nr_periodo in list(range(6,7)):
-            link = link_rreo(id_ente,an_exercicio,nr_periodo)
-            extrair(link)
-            time.sleep(1)
+            try:
+                link = link_rreo(id_ente,an_exercicio,nr_periodo)
+                extrair(link)
+                time.sleep(1)
+            except:
+                break
 
 #res_primario = df.query("cod_conta=='ResultadoPrimarioDemonstrativoSimplificado' & coluna=='Resultado Apurado até o Bimestre (b)'")
 #res_primario

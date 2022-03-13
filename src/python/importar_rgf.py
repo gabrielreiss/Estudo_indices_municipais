@@ -49,6 +49,9 @@ time.sleep(1)
 for id_ente in tqdm(municipios):
     for an_exercicio in list(range(2020,2021)):
         for nr_periodo in list(range(3,4)):
-            for co_poder in ['E','L']:
-                extrair_rgf(id_ente,an_exercicio,nr_periodo,co_poder)
-                time.sleep(0.5)
+            for co_poder in ['E']:
+                try:
+                    extrair_rgf(id_ente,an_exercicio,nr_periodo,co_poder)
+                    time.sleep(0.5)
+                except:
+                    break
