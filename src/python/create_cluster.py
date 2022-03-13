@@ -53,5 +53,5 @@ features = data.columns[2:,]
 data_impressao = scaled_features_df.pivot_table(index = "Classificacao")
 
 #ax = sns.heatmap(data[features], linewidth=0.5)
-ax = sns.heatmap(data_impressao)
+ax = sns.heatmap(data_impressao, annot=True)
 plt.show()
