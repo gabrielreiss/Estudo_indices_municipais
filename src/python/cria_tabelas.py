@@ -22,6 +22,7 @@ def cria_tabela(nome_query, nome_tabela):
 
     data.to_csv(os.path.join(TABELAS_DIR, f'{nome_tabela}.csv'), index=None)
 
+cria_tabela('sl_00_idh','idh')
 cria_tabela('sl_03_pop','pop')
 cria_tabela('sl_01_RCL', 'rcl')
 cria_tabela('sl_02_impostos', 'imp_perc')

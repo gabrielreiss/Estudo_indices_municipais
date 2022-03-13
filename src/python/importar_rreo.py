@@ -62,3 +62,4 @@ for id_ente in tqdm(municipios):
 
 #res_primario = df.query("cod_conta=='ResultadoPrimarioDemonstrativoSimplificado' & coluna=='Resultado Apurado até o Bimestre (b)'")
 #res_primario
+
