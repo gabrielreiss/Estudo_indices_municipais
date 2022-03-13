@@ -32,6 +32,8 @@ features = data.columns[2:,]
 
 scaler = StandardScaler()
 scaled_features = scaler.fit_transform(data[features])
+scaled_features_df = pd.DataFrame(scaled_features, columns=features)
+
 
 kmeans = KMeans(
      init="random",
@@ -44,9 +46,11 @@ kmeans = KMeans(
 kmeans.fit(scaled_features)
 
 data["Classificacao"] = kmeans.labels_
+scaled_features_df["Classificacao"] = kmeans.labels_
 
 features = data.columns[2:,]
-data_impressao = data[features].pivot_table(index = "Classificacao")
+#data_impressao = data[features].pivot_table(index = "Classificacao")
+data_impressao = scaled_features_df.pivot_table(index = "Classificacao")
 
 #ax = sns.heatmap(data[features], linewidth=0.5)
 ax = sns.heatmap(data_impressao)
