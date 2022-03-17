@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import sqlalchemy
 import matplotlib.pyplot as plt
-from kneed import KneeLocator
+#from kneed import KneeLocator
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
@@ -55,3 +55,10 @@ data_impressao = scaled_features_df.pivot_table(index = "Classificacao")
 #ax = sns.heatmap(data[features], linewidth=0.5)
 ax = sns.heatmap(data_impressao, annot=True)
 plt.show()
+
+df_pivot = pd.pivot_table(data, values='cod_ibge', index='Classificacao',
+                          aggfunc='count')
+
+df_pivot
+
+data[data["Classificacao"]==1]

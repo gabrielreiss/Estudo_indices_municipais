@@ -2,13 +2,11 @@ SELECT
         t1.cod_ibge,
         t1.instituicao,
         t2.t2.IDH,
-        t2.'IDH-renda',
-        t2.'IDH-longevidade',
-        t2.'IDH-educacao',
         t3.'RCL' / t4.populacao as 'RCL/Pop',
         t5.'imp_perc',
         t6.'transf_perc',
         t8.'PIBperCapita'
+        /*t9.'res_prim_perc' as 'ResultadoPrimarioSobreReceitasPrimarias'*/
 
 
         /* t4.populacao */
@@ -75,5 +73,13 @@ left join(
     ) as t7
 ) as T8
 ON t1.cod_ibge = t8.'Código do Município'
+
+left join(
+    SELECT  
+            cod_ibge,
+            valor as 'res_prim_perc'
+    from tb_res_prim_perc
+) as T9
+ON T1.cod_ibge = T9.cod_ibge
 
 ;
